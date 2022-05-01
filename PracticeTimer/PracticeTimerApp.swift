@@ -11,7 +11,7 @@ import SwiftUI
 struct PracticeTimerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TimerView()
         }
     }
 }
