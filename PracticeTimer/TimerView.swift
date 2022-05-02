@@ -7,16 +7,42 @@
 
 import SwiftUI
 
+struct PracticeElement {
+    enum Tempos {
+        case slow
+        case neutral
+        case fast
+    }
+    enum Articulations {
+        case legato
+        case neutral
+        case articulated
+    }
+    enum Volumes {
+        case quiet
+        case neutral
+        case loud
+    }
+    let name: String
+    let volume: Volumes
+    let articulation: Articulations
+    let tempo: Tempos
+    
+}
+
 struct TimerView: View {
     enum Mode {
         case work
         case rest
         case stopped
     }
+    
+    let practiceElements: [PracticeElement] = [PracticeElement(name: "Test", volume: .loud, articulation: .legato, tempo: .neutral)]
     func startPressed() {
         if mode == .work { mode = .stopped }
         else { mode = .work }
         print(mode)
+        print(practiceElements[0].name)
         
     }
     @State private var mode: Mode = .work
