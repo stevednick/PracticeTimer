@@ -88,10 +88,12 @@ class Controller: ObservableObject {
     @Published var timeRemaining: Int = 300
     
     init() {
-        workDuration = defaults.integer(forKey: "work-duration") > 0 ? defaults.integer(forKey: "work-duration") : 300
-        restDuration = defaults.integer(forKey: "rest-duration") > 0 ? defaults.integer(forKey: "rest-duration") : 60
+        workDuration = defaults.integer(forKey: "work-duration") > 0 ? defaults.integer(forKey: "work-duration") : 29
+        restDuration = defaults.integer(forKey: "rest-duration") > 0 ? defaults.integer(forKey: "rest-duration") : 10
         reps = defaults.integer(forKey: "reps") > 0 ? defaults.integer(forKey: "reps") : 5
         print(workDuration)
+        workDuration = workDuration > 45 ? 29 : workDuration
+        restDuration = restDuration > 45 ? 10 : restDuration
     }
     
     func saveSettings() {
@@ -109,7 +111,7 @@ class Controller: ObservableObject {
         if timeRemaining == 1 {
             if currentState == .countdown {
                 currentState = .work
-                timeRemaining = workDuration
+                timeRemaining = Tools.timerValues[workDuration]
                 soundPlayer.play(beep: "longBeep")
                 return
             }
@@ -121,10 +123,10 @@ class Controller: ObservableObject {
                     return
                 }
                 currentState = .rest
-                timeRemaining = restDuration
+                timeRemaining = Tools.timerValues[restDuration]
             } else {
                 currentState = .work
-                timeRemaining = workDuration
+                timeRemaining = Tools.timerValues[workDuration]
             }
             return
         }
@@ -168,12 +170,12 @@ class Controller: ObservableObject {
     func endButtonPressed() {
         currentState = .waitingToStart
         currentRep = 1
-        timeRemaining = workDuration
+        timeRemaining = Tools.timerValues[workDuration]
         isPaused = false
     }
     
     func setTimeToDisplay() {
-        timeRemaining = workDuration
+        timeRemaining = Tools.timerValues[workDuration]
         print("setTimeToDisplay()")
     }
 }

@@ -12,14 +12,13 @@
 		C54F0B4C282A83D80091E04F /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F0B4B282A83D80091E04F /* SoundPlayer.swift */; };
 		C54F0B4F282A83FC0091E04F /* longBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = C54F0B4E282A83FC0091E04F /* longBeep.wav */; };
 		C54F0B51282A84070091E04F /* shortBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = C54F0B50282A84070091E04F /* shortBeep.wav */; };
+		C56179EB282BA6DC00844D80 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56179EA282BA6DC00844D80 /* SettingsView.swift */; };
+		C56179ED282BA75600844D80 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56179EC282BA75600844D80 /* Components.swift */; };
 		C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */; };
 		C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A03281DB50800F1FD2F /* TimerView.swift */; };
 		C5EE2A06281DB50C00F1FD2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */; };
 		C5EE2A09281DB50C00F1FD2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A08281DB50C00F1FD2F /* Preview Assets.xcassets */; };
 		C5EE2A10282115E300F1FD2F /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A0F282115E300F1FD2F /* Controller.swift */; };
-		C5EE2A122821212500F1FD2F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A112821212500F1FD2F /* ViewModel.swift */; };
-		C5EE2A142821213300F1FD2F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A132821213300F1FD2F /* Model.swift */; };
-		C5EE2A162822661900F1FD2F /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A152822661900F1FD2F /* TimerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +27,8 @@
 		C54F0B4B282A83D80091E04F /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		C54F0B4E282A83FC0091E04F /* longBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = longBeep.wav; path = PracticeTimer/longBeep.wav; sourceTree = SOURCE_ROOT; };
 		C54F0B50282A84070091E04F /* shortBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shortBeep.wav; sourceTree = "<group>"; };
+		C56179EA282BA6DC00844D80 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C56179EC282BA75600844D80 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		C5B37809282AC071009365E2 /* PracticeTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PracticeTimer.entitlements; sourceTree = "<group>"; };
 		C5EE29FE281DB50800F1FD2F /* Muso Practice Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muso Practice Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerApp.swift; sourceTree = "<group>"; };
@@ -35,9 +36,6 @@
 		C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5EE2A08281DB50C00F1FD2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5EE2A0F282115E300F1FD2F /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		C5EE2A112821212500F1FD2F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		C5EE2A132821213300F1FD2F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		C5EE2A152822661900F1FD2F /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +52,10 @@
 		C51D3D1E2827E5250030ED16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C5EE2A03281DB50800F1FD2F /* TimerView.swift */,
 				C51D3D1F2827E53D0030ED16 /* PauseView.swift */,
+				C56179EA282BA6DC00844D80 /* SettingsView.swift */,
+				C56179EC282BA75600844D80 /* Components.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -89,13 +90,9 @@
 				C54F0B4D282A83EF0091E04F /* Sounds */,
 				C51D3D1E2827E5250030ED16 /* Views */,
 				C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */,
-				C5EE2A03281DB50800F1FD2F /* TimerView.swift */,
 				C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */,
 				C5EE2A07281DB50C00F1FD2F /* Preview Content */,
 				C5EE2A0F282115E300F1FD2F /* Controller.swift */,
-				C5EE2A112821212500F1FD2F /* ViewModel.swift */,
-				C5EE2A132821213300F1FD2F /* Model.swift */,
-				C5EE2A152822661900F1FD2F /* TimerViewModel.swift */,
 				C51D3D21282A53460030ED16 /* Tools.swift */,
 				C54F0B4B282A83D80091E04F /* SoundPlayer.swift */,
 				C54F0B4E282A83FC0091E04F /* longBeep.wav */,
@@ -184,12 +181,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5EE2A142821213300F1FD2F /* Model.swift in Sources */,
+				C56179EB282BA6DC00844D80 /* SettingsView.swift in Sources */,
+				C56179ED282BA75600844D80 /* Components.swift in Sources */,
 				C5EE2A10282115E300F1FD2F /* Controller.swift in Sources */,
 				C54F0B4C282A83D80091E04F /* SoundPlayer.swift in Sources */,
 				C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */,
-				C5EE2A122821212500F1FD2F /* ViewModel.swift in Sources */,
-				C5EE2A162822661900F1FD2F /* TimerViewModel.swift in Sources */,
 				C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */,
 				C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */,
 				C51D3D22282A53460030ED16 /* Tools.swift in Sources */,
