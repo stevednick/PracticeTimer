@@ -41,8 +41,11 @@ public struct PracticeElement {
 }
 
 class Controller: ObservableObject {
+    
+    let defaults = UserDefaults.standard
+    var soundPlayer = SoundPlayer()
+    
     @Published var currentState: Mode = .waitingToStart
-    @Published var timeRemaining: Int = 10 // Get rid of this starting value...
     var startButtonText: String {
         get {
             if [Mode.pausedRest, Mode.pausedWork].contains(currentState) { return "Go" }
@@ -61,21 +64,53 @@ class Controller: ObservableObject {
             return "Paused"
         }
     }
-    @Published var workDuration: Int = 10
-    @Published var restDuration: Int = 10
+    var pausedStateText: String {
+        get {
+            switch currentState {
+            case .pausedWork:
+                return "Work x\(currentRep)"
+            case .pausedRest:
+                return "Rest"
+            case .pausedCountdown:
+                return "Countdown"
+            default:
+                return "Error"
+            }
+        }
+    }
+    @Published var workDuration: Int
+    @Published var restDuration: Int
     var countdownDuration: Int = 5
-    @Published var reps: Int = 2
+    @Published var reps: Int
     @Published var currentRep = 1
+    @Published var isPaused = false
+    
+    @Published var timeRemaining: Int = 300
+    
+    init() {
+        workDuration = defaults.integer(forKey: "work-duration") > 0 ? defaults.integer(forKey: "work-duration") : 300
+        restDuration = defaults.integer(forKey: "rest-duration") > 0 ? defaults.integer(forKey: "rest-duration") : 60
+        reps = defaults.integer(forKey: "reps") > 0 ? defaults.integer(forKey: "reps") : 5
+        print(workDuration)
+    }
+    
+    func saveSettings() {
+        defaults.set(workDuration, forKey: "work-duration")
+        defaults.set(restDuration, forKey: "rest-duration")
+        defaults.set(reps, forKey: "reps")
+    }
     
 
     func incrementTime() {
         
         let stoppedModes: [Mode] = [.pausedRest, .pausedWork, .waitingToStart, .finished, .pausedCountdown]
         
+        
         if timeRemaining == 1 {
             if currentState == .countdown {
                 currentState = .work
                 timeRemaining = workDuration
+                soundPlayer.play(beep: "longBeep")
                 return
             }
             if currentState == .work {
@@ -93,8 +128,12 @@ class Controller: ObservableObject {
             }
             return
         }
-        if timeRemaining > 1 && stoppedModes.contains(currentState) == false{
+        if timeRemaining > 1 && !stoppedModes.contains(currentState){
             timeRemaining -= 1
+            
+            if timeRemaining <= 4 {
+                soundPlayer.play(beep: "shortBeep")
+            }
         }
         
     }
@@ -121,6 +160,21 @@ class Controller: ObservableObject {
             currentRep = 1
             timeRemaining = workDuration
         }
+        
+        isPaused = [Mode.pausedCountdown, Mode.pausedWork, Mode.pausedRest].contains(currentState)
+        return
+    }
+    
+    func endButtonPressed() {
+        currentState = .waitingToStart
+        currentRep = 1
+        timeRemaining = workDuration
+        isPaused = false
+    }
+    
+    func setTimeToDisplay() {
+        timeRemaining = workDuration
+        print("setTimeToDisplay()")
     }
 }
 

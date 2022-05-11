@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D3D1F2827E53D0030ED16 /* PauseView.swift */; };
+		C51D3D22282A53460030ED16 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D3D21282A53460030ED16 /* Tools.swift */; };
+		C54F0B4C282A83D80091E04F /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C54F0B4B282A83D80091E04F /* SoundPlayer.swift */; };
+		C54F0B4F282A83FC0091E04F /* longBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = C54F0B4E282A83FC0091E04F /* longBeep.wav */; };
+		C54F0B51282A84070091E04F /* shortBeep.wav in Resources */ = {isa = PBXBuildFile; fileRef = C54F0B50282A84070091E04F /* shortBeep.wav */; };
 		C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */; };
 		C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A03281DB50800F1FD2F /* TimerView.swift */; };
 		C5EE2A06281DB50C00F1FD2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */; };
@@ -18,7 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C5EE29FE281DB50800F1FD2F /* PracticeTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C51D3D1F2827E53D0030ED16 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
+		C51D3D21282A53460030ED16 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		C54F0B4B282A83D80091E04F /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		C54F0B4E282A83FC0091E04F /* longBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = longBeep.wav; path = PracticeTimer/longBeep.wav; sourceTree = SOURCE_ROOT; };
+		C54F0B50282A84070091E04F /* shortBeep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shortBeep.wav; sourceTree = "<group>"; };
+		C5B37809282AC071009365E2 /* PracticeTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PracticeTimer.entitlements; sourceTree = "<group>"; };
+		C5EE29FE281DB50800F1FD2F /* Muso Practice Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muso Practice Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerApp.swift; sourceTree = "<group>"; };
 		C5EE2A03281DB50800F1FD2F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +51,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C51D3D1E2827E5250030ED16 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C51D3D1F2827E53D0030ED16 /* PauseView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C54F0B4D282A83EF0091E04F /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		C5EE29F5281DB50800F1FD2F = {
 			isa = PBXGroup;
 			children = (
@@ -51,7 +77,7 @@
 		C5EE29FF281DB50800F1FD2F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C5EE29FE281DB50800F1FD2F /* PracticeTimer.app */,
+				C5EE29FE281DB50800F1FD2F /* Muso Practice Timer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +85,9 @@
 		C5EE2A00281DB50800F1FD2F /* PracticeTimer */ = {
 			isa = PBXGroup;
 			children = (
+				C5B37809282AC071009365E2 /* PracticeTimer.entitlements */,
+				C54F0B4D282A83EF0091E04F /* Sounds */,
+				C51D3D1E2827E5250030ED16 /* Views */,
 				C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */,
 				C5EE2A03281DB50800F1FD2F /* TimerView.swift */,
 				C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */,
@@ -67,6 +96,10 @@
 				C5EE2A112821212500F1FD2F /* ViewModel.swift */,
 				C5EE2A132821213300F1FD2F /* Model.swift */,
 				C5EE2A152822661900F1FD2F /* TimerViewModel.swift */,
+				C51D3D21282A53460030ED16 /* Tools.swift */,
+				C54F0B4B282A83D80091E04F /* SoundPlayer.swift */,
+				C54F0B4E282A83FC0091E04F /* longBeep.wav */,
+				C54F0B50282A84070091E04F /* shortBeep.wav */,
 			);
 			path = PracticeTimer;
 			sourceTree = "<group>";
@@ -96,7 +129,7 @@
 			);
 			name = PracticeTimer;
 			productName = PracticeTimer;
-			productReference = C5EE29FE281DB50800F1FD2F /* PracticeTimer.app */;
+			productReference = C5EE29FE281DB50800F1FD2F /* Muso Practice Timer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,6 +171,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5EE2A09281DB50C00F1FD2F /* Preview Assets.xcassets in Resources */,
+				C54F0B51282A84070091E04F /* shortBeep.wav in Resources */,
+				C54F0B4F282A83FC0091E04F /* longBeep.wav in Resources */,
 				C5EE2A06281DB50C00F1FD2F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,10 +186,13 @@
 			files = (
 				C5EE2A142821213300F1FD2F /* Model.swift in Sources */,
 				C5EE2A10282115E300F1FD2F /* Controller.swift in Sources */,
+				C54F0B4C282A83D80091E04F /* SoundPlayer.swift in Sources */,
 				C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */,
 				C5EE2A122821212500F1FD2F /* ViewModel.swift in Sources */,
 				C5EE2A162822661900F1FD2F /* TimerViewModel.swift in Sources */,
 				C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */,
+				C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */,
+				C51D3D22282A53460030ED16 /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,12 +318,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PracticeTimer/PracticeTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PracticeTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = V4DPA4RA3P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,9 +335,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weststreetgamestudios.PracticeTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Muso Practice Timer";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -309,12 +350,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PracticeTimer/PracticeTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PracticeTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = V4DPA4RA3P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -324,9 +367,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weststreetgamestudios.PracticeTimer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Muso Practice Timer";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

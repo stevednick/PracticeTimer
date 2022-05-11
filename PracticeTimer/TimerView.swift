@@ -10,6 +10,11 @@ import SwiftUI
 struct TimerView: View {
     
     @ObservedObject var controller: Controller = Controller()
+    
+    init() {
+        //UINavigationBar.setAnimationsEnabled(false)
+    }
+    
     var body: some View {
         NavigationView {
             MainView(controller: controller)
@@ -19,6 +24,9 @@ struct TimerView: View {
 }
 
 struct MainView: View {
+    
+    @State private var isPaused = false
+    
     @ObservedObject var controller: Controller
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -27,7 +35,9 @@ struct MainView: View {
     }
     
     var body: some View {
+
         VStack {
+            NavigationLink(destination: PauseView(controller: controller), isActive: $controller.isPaused) { EmptyView() }
             Spacer()
             HStack{
                 NavigationLink(destination: SettingsView(controller: controller)) {
@@ -36,28 +46,21 @@ struct MainView: View {
                 }
                 .padding(.leading, 40.0)
                 .frame(height: 20.0)
+                .isHidden(![Mode.finished, Mode.waitingToStart].contains(controller.currentState))
                 Spacer()
             }
             Divider()
-            Spacer()
-            Text(controller.stateText)
-                .font(Font.system(size: 60, weight: .semibold, design: .default))
-                .foregroundColor(.white)
-            Spacer()
-            CountdownText(text: controller.timeRemaining.timeDisplay())
-            Spacer()
-            Button {
-                controller.startButtonPressed()
-            } label: {
-                Text(controller.startButtonText)
-                    .font(.title)
-                    .fontWeight(.bold)
+            Group{
+                Spacer()
+                Text(controller.stateText)
+                    .font(Font.system(size: 60, weight: .semibold, design: .default))
                     .foregroundColor(.white)
+                Spacer()
+                CountdownText(text: controller.timeRemaining.timeDisplay())
+                Spacer()
+                ButtonView(functionToRun: controller.startButtonPressed, text: controller.startButtonText, colour: controller.currentState == Mode.waitingToStart ? Color.buttonGreen: Color.buttonOrange)
+                Spacer()
             }
-            .frame(width: 100, height: 100, alignment: .center)
-            .background(.yellow)
-            .cornerRadius(50)
-            Spacer()
         }
         .navigationBarHidden(true)
         .navigationBarTitle(Text("Home"))
@@ -87,13 +90,16 @@ struct SettingsView: View {
                 Spacer()
                 SettingsSlider(text: "No. of Reps", sliderValue: Double(controller.reps), minValue: 1, maxValue: 15, controller: controller, sliderNumber: 0)
                 Spacer()
-                SettingsSlider(text: "Work Duration", sliderValue: Double(controller.workDuration), minValue: 30, maxValue: 1200, controller: controller, sliderNumber: 2)
+                SettingsSlider(text: "Work Duration", sliderValue: Double(controller.workDuration), minValue: 30, maxValue: 1500, controller: controller, sliderNumber: 2)
                 Spacer()
-                SettingsSlider(text: "Rest Duration", sliderValue: Double(controller.restDuration), minValue: 10, maxValue: 600, controller: controller, sliderNumber: 1)
+                SettingsSlider(text: "Rest Duration", sliderValue: Double(controller.restDuration), minValue: 10, maxValue: 300, controller: controller, sliderNumber: 1)
                 Spacer()
 
             }
             .background(Color(UIColor.darkGray))
+        }
+        .onDisappear {
+            controller.saveSettings()
         }
     }
 }
@@ -101,7 +107,7 @@ struct SettingsView: View {
 struct TimerView_Previews: PreviewProvider {
     static var previews: some View {
         TimerView()
-            .previewDevice("iPad Pro (12.9-inch) (5th generation)")
+            //.previewDevice("iPad Pro (12.9-inch) (5th generation)")
         //SettingsView(controller: Controller())
     }
 }
@@ -149,3 +155,24 @@ struct SettingsSlider: View {
     }
 }
 
+
+struct ButtonView: View {
+    
+    var functionToRun: () -> Void
+    var text: String
+    var colour: Color
+    
+    var body: some View {
+        Button {
+            functionToRun()
+        } label: {
+            Text(text)
+                .font(Font.system(size: 18, weight: .semibold, design: .default))
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+        }
+        .frame(width: 100, height: 100, alignment: .center)
+        .background(colour)
+        .cornerRadius(50)
+    }
+}
