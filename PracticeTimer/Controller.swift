@@ -94,6 +94,7 @@ class Controller: ObservableObject {
         print(workDuration)
         workDuration = workDuration > 45 ? 29 : workDuration
         restDuration = restDuration > 45 ? 10 : restDuration
+        timeRemaining = Tools.timerValues[workDuration]
     }
     
     func saveSettings() {
@@ -109,10 +110,11 @@ class Controller: ObservableObject {
         
         
         if timeRemaining == 1 {
+            soundPlayer.play(beep: "longBeep")
             if currentState == .countdown {
                 currentState = .work
                 timeRemaining = Tools.timerValues[workDuration]
-                soundPlayer.play(beep: "longBeep")
+                
                 return
             }
             if currentState == .work {
@@ -160,7 +162,7 @@ class Controller: ObservableObject {
         case .finished:
             currentState = .waitingToStart
             currentRep = 1
-            timeRemaining = workDuration
+            timeRemaining = Tools.timerValues[workDuration]
         }
         
         isPaused = [Mode.pausedCountdown, Mode.pausedWork, Mode.pausedRest].contains(currentState)

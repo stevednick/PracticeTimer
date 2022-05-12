@@ -24,11 +24,11 @@ struct SettingsView: View {
             VStack{
                 Divider()
                 Spacer()
-                SettingsSlider(text: "No. of Reps", sliderValue: Double(controller.reps), minValue: 1, maxValue: 15, controller: controller, sliderNumber: 0)
+                SettingsSlider(text: "No. of Reps", sliderValue: Double(controller.reps), minValue: 1, maxValue: 15, controller: controller, sliderNumber: 0, colour: .appOrange)
                 Spacer()
-                SettingsSlider(text: "Work Duration", sliderValue: workSliderValue, minValue: 0, maxValue: 45, controller: controller, sliderNumber: 2)
+                SettingsSlider(text: "Work Duration", sliderValue: workSliderValue, minValue: 1, maxValue: 45, controller: controller, sliderNumber: 2, colour: .appGreen)
                 Spacer()
-                SettingsSlider(text: "Rest Duration", sliderValue: restSliderValue, minValue: 0, maxValue: 38, controller: controller, sliderNumber: 1)
+                SettingsSlider(text: "Rest Duration", sliderValue: restSliderValue, minValue: 1, maxValue: 38, controller: controller, sliderNumber: 1, colour: .appBlue)
                 Spacer()
 
             }
@@ -48,6 +48,7 @@ struct SettingsSlider: View {
     var maxValue: Double
     @ObservedObject var controller: Controller
     var sliderNumber: Int
+    var colour: Color
     
     var body: some View {
         VStack {
@@ -65,11 +66,15 @@ struct SettingsSlider: View {
                     controller.workDuration = Int(sliderValue)
                 }
             }
+                    .tint(colour)
             Text(sliderNumber == 0 ? "\(Int(sliderValue))" : "\(Tools.timerValues[Int(sliderValue)].timeDisplay())")
                 .font(Font.system(size: 40, weight: .bold, design: .default))
                 .foregroundColor(.white)
         }
         .padding(.horizontal, 20)
+        .onDisappear {
+            controller.setTimeToDisplay()
+        }
     }
 }
 

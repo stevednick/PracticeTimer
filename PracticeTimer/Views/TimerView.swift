@@ -58,7 +58,7 @@ struct MainView: View {
                 Spacer()
                 CountdownText(text: controller.timeRemaining.timeDisplay())
                 Spacer()
-                ButtonView(functionToRun: controller.startButtonPressed, text: controller.startButtonText, colour: controller.currentState == Mode.waitingToStart ? Color.buttonGreen: Color.buttonOrange)
+                ButtonView(functionToRun: controller.startButtonPressed, text: controller.startButtonText, colour: controller.currentState == Mode.waitingToStart ? Color.appGreen: Color.appLightOrange)
                 Spacer()
             }
         }

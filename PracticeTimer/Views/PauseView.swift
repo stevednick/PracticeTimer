@@ -34,9 +34,9 @@ struct PauseView: View {
                 Spacer()
             }
             Group {
-                ButtonView(functionToRun: controller.endButtonPressed, text: "Finish", colour: Color.buttonRed)
+                ButtonView(functionToRun: controller.endButtonPressed, text: "Finish", colour: Color.appOrange)
                 Spacer()
-                ButtonView(functionToRun: controller.startButtonPressed, text: "Continue", colour: Color.buttonGreen)
+                ButtonView(functionToRun: controller.startButtonPressed, text: "Continue", colour: Color.appGreen)
                 Spacer()
             }
         }
