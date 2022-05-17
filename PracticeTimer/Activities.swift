@@ -7,18 +7,40 @@
 
 import SwiftUI
 
-struct Activity {
-    var name: String = "New Activity"
+struct Activity: Identifiable {
+    var id = UUID()
+    var number: Int
+    var name: String = ""
     var volume: Int = 1
     var articulation: Int = 1
     var tempo: Int = 1
+    
+    // Init with name "Interval i"
 }
 
-struct ActivityController {
+class ActivityController: ObservableObject {
     
+    let defaults = UserDefaults.standard
     var activities: [Activity] = []
+    var numberOfActivities: Int
     
-    mutating func newActivity() {
-        activities.append(Activity())
+    init() {
+        numberOfActivities = defaults.integer(forKey: "reps")
+        for i in 0..<numberOfActivities {
+            activities.append(Activity(number: i))
+        }
+        //activities = [Activity](repeating: Activity(), count: numberOfActivities)
+    }
+    
+    func numberOfActivitiesChanged(){
+        activities = []
+        numberOfActivities = defaults.integer(forKey: "reps")
+        for i in 0..<numberOfActivities {
+            activities.append(Activity(number: i))
+        }
+    }
+    
+    func newActivity() {
+        //activities.append(Activity())
     }
 }

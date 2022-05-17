@@ -178,7 +178,6 @@ class Controller: ObservableObject {
     
     func setTimeToDisplay() {
         timeRemaining = Tools.timerValues[workDuration]
-        print("setTimeToDisplay()")
     }
 }
 

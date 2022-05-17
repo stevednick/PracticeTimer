@@ -10,6 +10,7 @@ import SwiftUI
 struct TimerView: View {
     
     @ObservedObject var controller: Controller = Controller()
+    @ObservedObject var activityContolller: ActivityController = ActivityController()
     
     init() {
         UINavigationBar.setAnimationsEnabled(false)
@@ -17,7 +18,7 @@ struct TimerView: View {
     
     var body: some View {
         NavigationView {
-            MainView(controller: controller)
+            MainView(controller: controller, activityController: activityContolller)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -28,10 +29,12 @@ struct MainView: View {
     @State private var isPaused = false
     
     @ObservedObject var controller: Controller
+    @ObservedObject var activityController: ActivityController
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    init(controller: Controller) {
+    init(controller: Controller, activityController: ActivityController) {
         self.controller = controller
+        self.activityController = activityController
     }
     
     var body: some View {
@@ -40,15 +43,21 @@ struct MainView: View {
             NavigationLink(destination: PauseView(controller: controller), isActive: $controller.isPaused) { EmptyView() }
             Spacer()
             HStack{
-                NavigationLink(destination: SettingsView(controller: controller)) {
+                NavigationLink(destination: SettingsView(controller: controller, activityController: activityController)) {
                     Text("Settings")
                         .font(Font.system(size: 25, weight: .semibold, design: .default))
                 }
                 .padding(.leading, 40.0)
                 .frame(height: 20.0)
-                .isHidden(![Mode.finished, Mode.waitingToStart].contains(controller.currentState))
                 Spacer()
+                NavigationLink(destination: ActivityView(activityController: activityController)) {
+                    Text("Intervals")
+                        .font(Font.system(size: 25, weight: .semibold, design: .default))
+                }
+                .padding(.trailing, 40.0)
+                .frame(height: 20.0)
             }
+            .isHidden(![Mode.finished, Mode.waitingToStart].contains(controller.currentState))
             Divider()
             Group{
                 Spacer()

@@ -11,11 +11,13 @@ import SwiftUI
 struct SettingsView: View {
     
     @ObservedObject var controller: Controller
+    @ObservedObject var activityController: ActivityController
     @State var workSliderValue: Double
     @State var restSliderValue: Double
     
-    init(controller: Controller) {
+    init(controller: Controller, activityController: ActivityController) {
         self.controller = controller
+        self.activityController = activityController
         workSliderValue = Double(controller.workDuration)
         restSliderValue = Double(controller.restDuration)
     }
@@ -36,6 +38,7 @@ struct SettingsView: View {
         }
         .onDisappear {
             controller.saveSettings()
+            activityController.numberOfActivitiesChanged()
         }
     }
 }
@@ -80,6 +83,6 @@ struct SettingsSlider: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(controller: Controller())
+        SettingsView(controller: Controller(), activityController: ActivityController())
     }
 }
