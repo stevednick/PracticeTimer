@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TimerView: View {
     
-    @ObservedObject var controller: Controller = Controller()
+    @StateObject var controller: Controller = Controller()
     @ObservedObject var activityContolller: ActivityController = ActivityController()
     
     init() {
@@ -78,6 +78,8 @@ struct MainView: View {
         .onReceive(timer) { time in
             controller.incrementTime()
         }
+        .onAppear { UIApplication.shared.isIdleTimerDisabled = true }
+        .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
     }
 }
 

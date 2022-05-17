@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Activity: Identifiable {
+struct Activity: Identifiable { // Does this need a refactor too, probably once we move to core data...
     var id = UUID()
     var number: Int
     var name: String = ""
@@ -39,7 +39,7 @@ class ActivityController: ObservableObject {
             activities.append(Activity(number: i))
         }
     }
-    
+
     func newActivity() {
         //activities.append(Activity())
     }

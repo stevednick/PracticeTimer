@@ -46,6 +46,8 @@ class Controller: ObservableObject {
     var soundPlayer = SoundPlayer()
     
     @Published var currentState: Mode = .waitingToStart
+    @StateObject var activityController: ActivityController = ActivityController()
+    
     var startButtonText: String {
         get {
             if [Mode.pausedRest, Mode.pausedWork].contains(currentState) { return "Go" }
@@ -108,13 +110,11 @@ class Controller: ObservableObject {
         
         let stoppedModes: [Mode] = [.pausedRest, .pausedWork, .waitingToStart, .finished, .pausedCountdown]
         
-        
         if timeRemaining == 1 {
             soundPlayer.play(beep: "longBeep")
             if currentState == .countdown {
                 currentState = .work
                 timeRemaining = Tools.timerValues[workDuration]
-                
                 return
             }
             if currentState == .work {
@@ -139,7 +139,6 @@ class Controller: ObservableObject {
                 soundPlayer.play(beep: "shortBeep")
             }
         }
-        
     }
     
     func startButtonPressed() {
