@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct TimerView: View {
     
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(entity: Interval.entity(), sortDescriptors: []) var intervals: FetchedResults<Interval>
+
+    
     @StateObject var controller: Controller = Controller()
-    @ObservedObject var activityContolller: ActivityController = ActivityController()
+    @StateObject var activityContolller: ActivityController = ActivityController()
     
     init() {
         UINavigationBar.setAnimationsEnabled(false)
@@ -18,10 +23,18 @@ struct TimerView: View {
     
     var body: some View {
         NavigationView {
-            MainView(controller: controller, activityController: activityContolller)
+            ZStack{
+                MainView(controller: controller, activityController: activityContolller)
+                
+            }
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
+    
+
+
+    
 }
 
 struct MainView: View {

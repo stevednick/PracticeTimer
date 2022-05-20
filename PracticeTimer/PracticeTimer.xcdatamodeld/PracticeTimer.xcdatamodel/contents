@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Interval" representedClassName="Interval" syncable="YES" codeGenerationType="class">
+        <attribute name="articulation" optional="YES" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <attribute name="tempo" optional="YES" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Interval" positionX="-63" positionY="-18" width="128" height="104"/>
+    </elements>
+</model>

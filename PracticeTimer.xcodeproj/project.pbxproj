@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		C516FCBB28318E020068EA05 /* Jobs in Resources */ = {isa = PBXBuildFile; fileRef = C516FCBA28318E020068EA05 /* Jobs */; };
+		C516FCBE2833FAB20068EA05 /* PracticeTimer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C516FCBC2833FAB20068EA05 /* PracticeTimer.xcdatamodeld */; };
+		C516FCC22834E4F50068EA05 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516FCC12834E4F50068EA05 /* DataStore.swift */; };
+		C516FCE328357B170068EA05 /* IntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516FCE228357B170068EA05 /* IntervalRow.swift */; };
+		C516FCE5283582470068EA05 /* AddInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516FCE4283582470068EA05 /* AddInterval.swift */; };
 		C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D3D1F2827E53D0030ED16 /* PauseView.swift */; };
 		C51D3D22282A53460030ED16 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D3D21282A53460030ED16 /* Tools.swift */; };
 		C52C97CD282DB46600DF96EB /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52C97CC282DB46600DF96EB /* ActivityView.swift */; };
@@ -27,6 +31,10 @@
 
 /* Begin PBXFileReference section */
 		C516FCBA28318E020068EA05 /* Jobs */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jobs; sourceTree = "<group>"; };
+		C516FCBD2833FAB20068EA05 /* PracticeTimer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PracticeTimer.xcdatamodel; sourceTree = "<group>"; };
+		C516FCC12834E4F50068EA05 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		C516FCE228357B170068EA05 /* IntervalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalRow.swift; sourceTree = "<group>"; };
+		C516FCE4283582470068EA05 /* AddInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInterval.swift; sourceTree = "<group>"; };
 		C51D3D1F2827E53D0030ED16 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
 		C51D3D21282A53460030ED16 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		C52C97CC282DB46600DF96EB /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
@@ -66,6 +74,8 @@
 				C56179EC282BA75600844D80 /* Components.swift */,
 				C56179EE282BEF0100844D80 /* ActivityCardView.swift */,
 				C52C97CC282DB46600DF96EB /* ActivityView.swift */,
+				C516FCE228357B170068EA05 /* IntervalRow.swift */,
+				C516FCE4283582470068EA05 /* AddInterval.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,6 +119,8 @@
 				C54F0B50282A84070091E04F /* shortBeep.wav */,
 				C56179F0282D3ACB00844D80 /* ActivityController.swift */,
 				C516FCBA28318E020068EA05 /* Jobs */,
+				C516FCBC2833FAB20068EA05 /* PracticeTimer.xcdatamodeld */,
+				C516FCC12834E4F50068EA05 /* DataStore.swift */,
 			);
 			path = PracticeTimer;
 			sourceTree = "<group>";
@@ -200,11 +212,15 @@
 				C5EE2A10282115E300F1FD2F /* Controller.swift in Sources */,
 				C54F0B4C282A83D80091E04F /* SoundPlayer.swift in Sources */,
 				C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */,
+				C516FCBE2833FAB20068EA05 /* PracticeTimer.xcdatamodeld in Sources */,
+				C516FCC22834E4F50068EA05 /* DataStore.swift in Sources */,
 				C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */,
 				C56179EF282BEF0100844D80 /* ActivityCardView.swift in Sources */,
 				C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */,
 				C56179F1282D3ACB00844D80 /* ActivityController.swift in Sources */,
 				C51D3D22282A53460030ED16 /* Tools.swift in Sources */,
+				C516FCE5283582470068EA05 /* AddInterval.swift in Sources */,
+				C516FCE328357B170068EA05 /* IntervalRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +348,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PracticeTimer/PracticeTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"PracticeTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = V4DPA4RA3P;
 				ENABLE_PREVIEWS = YES;
@@ -348,7 +364,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weststreetgamestudios.PracticeTimer;
 				PRODUCT_NAME = "Muso Practice Timer";
 				SUPPORTS_MACCATALYST = NO;
@@ -365,7 +381,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PracticeTimer/PracticeTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"PracticeTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = V4DPA4RA3P;
 				ENABLE_PREVIEWS = YES;
@@ -381,7 +397,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.3;
+				MARKETING_VERSION = 0.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weststreetgamestudios.PracticeTimer;
 				PRODUCT_NAME = "Muso Practice Timer";
 				SUPPORTS_MACCATALYST = NO;
@@ -413,6 +429,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C516FCBC2833FAB20068EA05 /* PracticeTimer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C516FCBD2833FAB20068EA05 /* PracticeTimer.xcdatamodel */,
+			);
+			currentVersion = C516FCBD2833FAB20068EA05 /* PracticeTimer.xcdatamodel */;
+			path = PracticeTimer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C5EE29F6281DB50800F1FD2F /* Project object */;
 }

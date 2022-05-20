@@ -5,6 +5,7 @@
 //  Created by Stephen Nicholls on 12/05/2022.
 //
 
+import CoreData
 import SwiftUI
 
 struct Activity: Identifiable { // Does this need a refactor too, probably once we move to core data...
@@ -19,6 +20,7 @@ struct Activity: Identifiable { // Does this need a refactor too, probably once 
 }
 
 class ActivityController: ObservableObject {
+    
     
     let defaults = UserDefaults.standard
     var activities: [Activity] = []
@@ -40,7 +42,7 @@ class ActivityController: ObservableObject {
         }
     }
 
-    func newActivity() {
-        //activities.append(Activity())
+    func newInterval() {
+
     }
 }
