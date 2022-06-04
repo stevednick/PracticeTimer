@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftyUserDefaults
 
 extension Color {
     static let buttonGreen = Color("lightGreen")
@@ -20,6 +21,7 @@ extension Color {
 }
 
 extension View {
+    
     /// Hide or show the view based on a boolean value.
     ///
     /// Example for visibility:
@@ -44,6 +46,10 @@ extension View {
             self
         }
     }
+}
+
+extension DefaultsKeys {
+    var test: DefaultsKey<String?> { .init("test") }
 }
 
 struct Tools {

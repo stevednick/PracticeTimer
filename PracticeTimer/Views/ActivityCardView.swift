@@ -29,9 +29,6 @@ struct ActivityCardView: View { // Send activitycontroller so you can save activ
                 AttributeButton(activityController: activityController, number: number, attribute: 0, attributeList: volumes, value: activityController.activities[number].volume)
                 AttributeButton(activityController: activityController, number: number, attribute: 1, attributeList: speeds, value: activityController.activities[number].tempo)
                 AttributeButton(activityController: activityController, number: number, attribute: 2, attributeList: articulations, value: activityController.activities[number].articulation)
-//                AttributeButton(attribute: self.activityController.activities[number].volume, attributeList: volumes)
-//                AttributeButton(attribute: self.activityController.activities[number].tempo, attributeList: speeds)
-//                AttributeButton(attribute: self.activityController.activities[number].articulation, attributeList: articulations)
             }
             .padding(.bottom, 20.0)
         }

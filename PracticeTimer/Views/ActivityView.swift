@@ -7,62 +7,67 @@
 
 import SwiftUI
 
-struct ActivityView: View {
+struct ActivityView: View{
     
     @ObservedObject var activityController: ActivityController
     @Environment(\.managedObjectContext) var context
     @FetchRequest(entity: Interval.entity(), sortDescriptors: []) var intervals: FetchedResults<Interval>
-    
+    @FetchRequest(entity: Schedule.entity(), sortDescriptors: []) var schedule: FetchedResults<Schedule>
+
+    @State var dataView: DataView = DataView()
+
     @State var isPresented = false
     
     
     var body: some View {
-        NavigationView {
+        VStack{
             List {
-                ForEach(intervals, id: \.name) {
-                  IntervalRow(interval: $0)
+                ForEach(dataView.intervals, id: \.name) {
+                    IntervalRow(save: saveContext, interval: $0)
                 }
-                .onDelete(perform: deleteInterval)
-            }
-            .sheet(isPresented: $isPresented) {
-              AddInterval { name, volume, tempo, articulation in
-                  self.addInterval(name: name, volume: volume, tempo: tempo, articulation: articulation)
-                self.isPresented = false
-              }
-            }
-
-            .navigationBarTitle(Text("Intervals"))
-              .navigationBarItems(trailing:
-                Button(action: { self.isPresented.toggle() }) {
-                  Image(systemName: "plus")
+                .onDelete(perform: dataView.deleteInterval)
+                Button {
+                    testSchedule()
+                } label: {
+                    Text("Add")
                 }
-            )
+                Button {
+                    getSchedule()
+                } label: {
+                    Text("Get")
+                }
+            }
         }
-    }
-    
-    func addInterval(name: String, volume: Int, tempo: Int, articulation: Int) {
-      // 1
-        let interval = Interval(context: context)
+//        .onAppear(){
+//            dataView = DataView()
+//        }
+        .sheet(isPresented: $isPresented) {
+          AddInterval { name, volume, tempo, articulation in
+              dataView.addInterval(name: name, volume: volume, tempo: tempo, articulation: articulation)
+            self.isPresented = false
+          }
+        }
 
-        interval.name = name
-        interval.volume = Int16(volume)
-        interval.tempo = Int16(tempo)
-        interval.articulation = Int16(articulation)
-      // 3
-        saveContext()
+        .navigationBarTitle(Text("Intervals"))
+          .navigationBarItems(trailing:
+            Button(action: { self.isPresented.toggle() }) {
+              Image(systemName: "plus")
+            }
+        )
+    
     }
     
-    func deleteInterval(at offsets: IndexSet) {
-      // 1
-      offsets.forEach { index in
-        // 2
-        let interval = self.intervals[index]
-        // 3
-        self.context.delete(interval)
-      }
-      // 4
-      saveContext()
+    func testSchedule() {
+//        let schedule = Schedule(context: context)
+//        schedule.list = [[1, 4, 6], [5, 2, 6], [4, 7, 9]]
+//        dataView.saveContext()
     }
+    
+    func getSchedule() {
+//        print(schedule[0].list?[1][2] ?? 0)
+    }
+    
+
     func saveContext() {
         do {
             try context.save()
@@ -75,8 +80,8 @@ struct ActivityView: View {
     }
 }
 
-struct ActivityView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityView(activityController: ActivityController())
-    }
-}
+//struct ActivityView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActivityView(activityController: ActivityController())
+//    }
+//}

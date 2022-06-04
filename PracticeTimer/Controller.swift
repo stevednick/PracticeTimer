@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftyUserDefaults
 
 enum Mode {
     case work
@@ -93,10 +94,12 @@ class Controller: ObservableObject {
         workDuration = defaults.integer(forKey: "work-duration") > 0 ? defaults.integer(forKey: "work-duration") : 29
         restDuration = defaults.integer(forKey: "rest-duration") > 0 ? defaults.integer(forKey: "rest-duration") : 10
         reps = defaults.integer(forKey: "reps") > 0 ? defaults.integer(forKey: "reps") : 5
-        print(workDuration)
         workDuration = workDuration > 45 ? 29 : workDuration
         restDuration = restDuration > 45 ? 10 : restDuration
         timeRemaining = Tools.timerValues[workDuration]
+        print(Defaults.test ?? "Nothing Here")
+        Defaults.test = "Test String!"
+        print(Defaults.test ?? "This really should have something!")
     }
     
     func saveSettings() {

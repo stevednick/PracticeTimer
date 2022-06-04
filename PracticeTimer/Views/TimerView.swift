@@ -10,10 +10,6 @@ import CoreData
 
 struct TimerView: View {
     
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Interval.entity(), sortDescriptors: []) var intervals: FetchedResults<Interval>
-
-    
     @StateObject var controller: Controller = Controller()
     @StateObject var activityContolller: ActivityController = ActivityController()
     
@@ -25,19 +21,17 @@ struct TimerView: View {
         NavigationView {
             ZStack{
                 MainView(controller: controller, activityController: activityContolller)
-                
             }
-            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
-
-
-    
 }
 
 struct MainView: View {
+    
+    @Environment(\.managedObjectContext) var context
+    @FetchRequest(entity: Interval.entity(), sortDescriptors: []) var intervals: FetchedResults<Interval>
+    @FetchRequest(entity: Schedule.entity(), sortDescriptors: []) var schedule: FetchedResults<Schedule>
     
     @State private var isPaused = false
     
@@ -64,6 +58,8 @@ struct MainView: View {
                 .frame(height: 20.0)
                 Spacer()
                 NavigationLink(destination: ActivityView(activityController: activityController)) {
+                               
+                    //ScheduleView()) {
                     Text("Intervals")
                         .font(Font.system(size: 25, weight: .semibold, design: .default))
                 }
@@ -112,5 +108,19 @@ struct CountdownText: View {
             .fontWeight(.bold)
             .padding()
             .foregroundColor(.white)
+    }
+}
+
+extension MainView {
+    func saveContext() {
+        do {
+            try context.save()
+            DispatchQueue.main.async {
+                //
+            }
+        }catch {
+            print(error)
+        }
+        print("Context Saved")
     }
 }

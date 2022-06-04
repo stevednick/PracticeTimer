@@ -17,7 +17,6 @@ class DataStore {
             if let error = error {
                 print(error)
             }
-            
         }
         return container
     }()
@@ -25,7 +24,7 @@ class DataStore {
     private init() {
         
     }
-    
+
     public func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {

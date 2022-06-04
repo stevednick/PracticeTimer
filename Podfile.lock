@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyUserDefaults (5.3.0)
+
+DEPENDENCIES:
+  - SwiftyUserDefaults (~> 5.3)
+
+SPEC REPOS:
+  trunk:
+    - SwiftyUserDefaults
+
+SPEC CHECKSUMS:
+  SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
+
+PODFILE CHECKSUM: e81d1fb5efac6c542cd17d26113189b28951165a
+
+COCOAPODS: 1.11.3
