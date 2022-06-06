@@ -1,16 +1,22 @@
 PODS:
-  - SwiftyUserDefaults (5.3.0)
+  - Realm (10.28.0):
+    - Realm/Headers (= 10.28.0)
+  - Realm/Headers (10.28.0)
+  - RealmSwift (10.28.0):
+    - Realm (= 10.28.0)
 
 DEPENDENCIES:
-  - SwiftyUserDefaults (~> 5.3)
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
-    - SwiftyUserDefaults
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
-  SwiftyUserDefaults: 63f80248cf5bfb3458825d9a78f2eb7e1293a040
+  Realm: a0dd4e07530faaa327244ddb4ecb445c98f0537a
+  RealmSwift: 625a21f03e01e80f6b9b86bade269ebebcd7892c
 
-PODFILE CHECKSUM: e81d1fb5efac6c542cd17d26113189b28951165a
+PODFILE CHECKSUM: c221beb8291021aaefe6ba6cfe4eb9f3caf8af5e
 
 COCOAPODS: 1.11.3

@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ScheduleView: View {
     
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Interval.entity(), sortDescriptors: []) var intervals: FetchedResults<Interval>
-    @FetchRequest(entity: Schedule.entity(), sortDescriptors: []) var schedule: FetchedResults<Schedule>
     @State var sessionData: [[Int]] = [[]]
 
     
@@ -30,9 +27,9 @@ struct ScheduleView: View {
             }
         }
         .onAppear(){
-            sessionData = schedule[0].list ?? [[0]]
-            print(sessionData)
-            print("Runs")
+//            sessionData = schedule[0].list ?? [[0]]
+//            print(sessionData)
+//            print("Runs")
         }
     }
     

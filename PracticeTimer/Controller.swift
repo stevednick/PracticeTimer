@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftyUserDefaults
 
 enum Mode {
     case work
@@ -43,6 +42,7 @@ public struct PracticeElement {
 
 class Controller: ObservableObject {
     
+    let data = Data()
     let defaults = UserDefaults.standard
     var soundPlayer = SoundPlayer()
     
@@ -97,9 +97,7 @@ class Controller: ObservableObject {
         workDuration = workDuration > 45 ? 29 : workDuration
         restDuration = restDuration > 45 ? 10 : restDuration
         timeRemaining = Tools.timerValues[workDuration]
-        print(Defaults.test ?? "Nothing Here")
-        Defaults.test = "Test String!"
-        print(Defaults.test ?? "This really should have something!")
+        
     }
     
     func saveSettings() {

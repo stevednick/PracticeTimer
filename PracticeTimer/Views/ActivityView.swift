@@ -10,50 +10,26 @@ import SwiftUI
 struct ActivityView: View{
     
     @ObservedObject var activityController: ActivityController
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Interval.entity(), sortDescriptors: []) var intervals: FetchedResults<Interval>
-    @FetchRequest(entity: Schedule.entity(), sortDescriptors: []) var schedule: FetchedResults<Schedule>
-
-    @State var dataView: DataView = DataView()
+    @EnvironmentObject var realmManager: RealmManager
 
     @State var isPresented = false
     
     
     var body: some View {
         VStack{
-            List {
-                ForEach(dataView.intervals, id: \.name) {
-                    IntervalRow(save: saveContext, interval: $0)
-                }
-                .onDelete(perform: dataView.deleteInterval)
-                Button {
-                    testSchedule()
-                } label: {
-                    Text("Add")
-                }
-                Button {
-                    getSchedule()
-                } label: {
-                    Text("Get")
-                }
-            }
+            
         }
-//        .onAppear(){
-//            dataView = DataView()
-//        }
-        .sheet(isPresented: $isPresented) {
-          AddInterval { name, volume, tempo, articulation in
-              dataView.addInterval(name: name, volume: volume, tempo: tempo, articulation: articulation)
-            self.isPresented = false
-          }
-        }
-
-        .navigationBarTitle(Text("Intervals"))
-          .navigationBarItems(trailing:
-            Button(action: { self.isPresented.toggle() }) {
-              Image(systemName: "plus")
-            }
-        )
+        //.sheet(isPresented: $isPresented) {
+//          AddInterval { name, volume, tempo, articulation in
+//              dataView.addInterval(name: name, volume: volume, tempo: tempo, articulation: articulation)
+//            self.isPresented = false
+           
+//        .navigationBarTitle(Text("Intervals"))
+//          .navigationBarItems(trailing:
+//            Button(action: { self.isPresented.toggle() }) {
+//              Image(systemName: "plus")
+//            }
+//        )
     
     }
     
@@ -66,22 +42,11 @@ struct ActivityView: View{
     func getSchedule() {
 //        print(schedule[0].list?[1][2] ?? 0)
     }
-    
-
-    func saveContext() {
-        do {
-            try context.save()
-            DispatchQueue.main.async {
-                //
-            }
-        }catch {
-            print(error)
-        }
-    }
 }
 
-//struct ActivityView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ActivityView(activityController: ActivityController())
-//    }
-//}
+struct ActivityView_Previews: PreviewProvider {
+    static var previews: some View {
+        ActivityView(activityController: ActivityController())
+            .environmentObject(RealmManager())
+    }
+}

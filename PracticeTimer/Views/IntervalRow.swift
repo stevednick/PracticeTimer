@@ -10,38 +10,38 @@ import SwiftUI
     struct IntervalRow: View {
         
         var save: () -> Void
-        @State var interval: Interval
+        //@State var interval: Interval
         let volumes: [String] = ["Quiet", "No Dynamic", "Loud"]
         let tempos: [String] = ["Slow", "No Tempo", "Fast"]
         let articulations: [String] = ["Legato", "No Articulation", "Staccato"]
 
         var body: some View {
             VStack() {
-                HStack{
-                    interval.name.map(Text.init)
-                        .font(.title)
-                        .padding([.leading, .bottom], 5.0)
-                        .foregroundColor(interval.on ? .black : Color(UIColor.lightGray))
-                    Spacer()
-                    Button { // fix full button click thing?
-                        interval.on = !interval.on
-                        self.save()
-                    } label: {
-                        Text(interval.on ? "Disable" : "Enable")
-                    }
-                    .buttonStyle(PlainButtonStyle())
-                    .foregroundColor(.blue)
-                }
-            HStack {
-                Text(volumes[Int(interval.volume)])
-                    .modifier(AttributeText(on: interval.on))
-                Spacer()
-                Text(tempos[Int(interval.tempo)])
-                    .modifier(AttributeText(on: interval.on))
-                Spacer()
-                Text(articulations[Int(interval.articulation)])
-                    .modifier(AttributeText(on: interval.on))
-            }
+//                HStack{
+//                    interval.name.map(Text.init)
+//                        .font(.title)
+//                        .padding([.leading, .bottom], 5.0)
+//                        .foregroundColor(interval.on ? .black : Color(UIColor.lightGray))
+//                    Spacer()
+//                    Button { // fix full button click thing?
+//                        interval.on = !interval.on
+//                        self.save()
+//                    } label: {
+//                        Text(interval.on ? "Disable" : "Enable")
+//                    }
+//                    .buttonStyle(PlainButtonStyle())
+//                    .foregroundColor(.blue)
+//                }
+//            HStack {
+//                Text(volumes[Int(interval.volume)])
+//                    .modifier(AttributeText(on: interval.on))
+//                Spacer()
+//                Text(tempos[Int(interval.tempo)])
+//                    .modifier(AttributeText(on: interval.on))
+//                Spacer()
+//                Text(articulations[Int(interval.articulation)])
+//                    .modifier(AttributeText(on: interval.on))
+//            }
         }
     }
 }

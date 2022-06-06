@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftyUserDefaults
 
 extension Color {
     static let buttonGreen = Color("lightGreen")
@@ -46,10 +45,6 @@ extension View {
             self
         }
     }
-}
-
-extension DefaultsKeys {
-    var test: DefaultsKey<String?> { .init("test") }
 }
 
 struct Tools {

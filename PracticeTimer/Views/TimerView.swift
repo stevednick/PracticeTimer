@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct TimerView: View {
-    
+    @StateObject var realmManager: RealmManager = RealmManager()
     @StateObject var controller: Controller = Controller()
     @StateObject var activityContolller: ActivityController = ActivityController()
     
@@ -24,14 +24,15 @@ struct TimerView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear{
+            realmManager.addInterval(title: "Test Interval")
+            realmManager.getIntervals()
+            print(realmManager.intervals)
+        }
     }
 }
 
 struct MainView: View {
-    
-    @Environment(\.managedObjectContext) var context
-    @FetchRequest(entity: Interval.entity(), sortDescriptors: []) var intervals: FetchedResults<Interval>
-    @FetchRequest(entity: Schedule.entity(), sortDescriptors: []) var schedule: FetchedResults<Schedule>
     
     @State private var isPaused = false
     
@@ -111,16 +112,3 @@ struct CountdownText: View {
     }
 }
 
-extension MainView {
-    func saveContext() {
-        do {
-            try context.save()
-            DispatchQueue.main.async {
-                //
-            }
-        }catch {
-            print(error)
-        }
-        print("Context Saved")
-    }
-}

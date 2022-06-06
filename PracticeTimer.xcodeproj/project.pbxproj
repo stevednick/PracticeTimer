@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		547CD83B600924AB9F0A7791 /* Pods_PracticeTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2F7030AB6244800BA40C4B /* Pods_PracticeTimer.framework */; };
 		C516FCBB28318E020068EA05 /* Jobs in Resources */ = {isa = PBXBuildFile; fileRef = C516FCBA28318E020068EA05 /* Jobs */; };
-		C516FCBE2833FAB20068EA05 /* PracticeTimer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C516FCBC2833FAB20068EA05 /* PracticeTimer.xcdatamodeld */; };
-		C516FCC22834E4F50068EA05 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516FCC12834E4F50068EA05 /* DataStore.swift */; };
 		C516FCE328357B170068EA05 /* IntervalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516FCE228357B170068EA05 /* IntervalRow.swift */; };
 		C516FCE5283582470068EA05 /* AddInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C516FCE4283582470068EA05 /* AddInterval.swift */; };
 		C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C51D3D1F2827E53D0030ED16 /* PauseView.swift */; };
@@ -25,7 +23,7 @@
 		C56179F1282D3ACB00844D80 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56179F0282D3ACB00844D80 /* ActivityController.swift */; };
 		C56E747E283983EB00C38D5D /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E747D283983EB00C38D5D /* ScheduleView.swift */; };
 		C58ED0AE2841918C00302C02 /* Schedule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58ED0AC2841918C00302C02 /* Schedule+CoreDataClass.swift */; };
-		C58ED0B128474E6A00302C02 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58ED0B028474E6A00302C02 /* DataView.swift */; };
+		C5CA1FE7284D3C0300179692 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CA1FE6284D3C0300179692 /* Data.swift */; };
 		C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */; };
 		C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A03281DB50800F1FD2F /* TimerView.swift */; };
 		C5EE2A06281DB50C00F1FD2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */; };
@@ -36,8 +34,6 @@
 /* Begin PBXFileReference section */
 		2F2D4609B2E111A61A70E4AE /* Pods-PracticeTimer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PracticeTimer.debug.xcconfig"; path = "Target Support Files/Pods-PracticeTimer/Pods-PracticeTimer.debug.xcconfig"; sourceTree = "<group>"; };
 		C516FCBA28318E020068EA05 /* Jobs */ = {isa = PBXFileReference; lastKnownFileType = text; path = Jobs; sourceTree = "<group>"; };
-		C516FCBD2833FAB20068EA05 /* PracticeTimer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PracticeTimer.xcdatamodel; sourceTree = "<group>"; };
-		C516FCC12834E4F50068EA05 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		C516FCE228357B170068EA05 /* IntervalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalRow.swift; sourceTree = "<group>"; };
 		C516FCE4283582470068EA05 /* AddInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInterval.swift; sourceTree = "<group>"; };
 		C51D3D1F2827E53D0030ED16 /* PauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseView.swift; sourceTree = "<group>"; };
@@ -52,8 +48,8 @@
 		C56179F0282D3ACB00844D80 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		C56E747D283983EB00C38D5D /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		C58ED0AC2841918C00302C02 /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C58ED0B028474E6A00302C02 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		C5B37809282AC071009365E2 /* PracticeTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PracticeTimer.entitlements; sourceTree = "<group>"; };
+		C5CA1FE6284D3C0300179692 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C5EE29FE281DB50800F1FD2F /* Muso Practice Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muso Practice Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerApp.swift; sourceTree = "<group>"; };
 		C5EE2A03281DB50800F1FD2F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -100,13 +96,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		C54F0B4D282A83EF0091E04F /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
 		C5EE29F5281DB50800F1FD2F = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				C5B37809282AC071009365E2 /* PracticeTimer.entitlements */,
-				C54F0B4D282A83EF0091E04F /* Sounds */,
 				C51D3D1E2827E5250030ED16 /* Views */,
 				C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */,
 				C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */,
@@ -142,9 +130,7 @@
 				C54F0B50282A84070091E04F /* shortBeep.wav */,
 				C56179F0282D3ACB00844D80 /* ActivityController.swift */,
 				C516FCBA28318E020068EA05 /* Jobs */,
-				C516FCBC2833FAB20068EA05 /* PracticeTimer.xcdatamodeld */,
-				C516FCC12834E4F50068EA05 /* DataStore.swift */,
-				C58ED0B028474E6A00302C02 /* DataView.swift */,
+				C5CA1FE6284D3C0300179692 /* Data.swift */,
 			);
 			path = PracticeTimer;
 			sourceTree = "<group>";
@@ -163,7 +149,6 @@
 				2F2D4609B2E111A61A70E4AE /* Pods-PracticeTimer.debug.xcconfig */,
 				C765EA27667BD17CFAD4F546 /* Pods-PracticeTimer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -284,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C58ED0B128474E6A00302C02 /* DataView.swift in Sources */,
 				C52C97CD282DB46600DF96EB /* ActivityView.swift in Sources */,
 				C56179EB282BA6DC00844D80 /* SettingsView.swift in Sources */,
 				C56179ED282BA75600844D80 /* Components.swift in Sources */,
@@ -293,13 +277,12 @@
 				C54F0B4C282A83D80091E04F /* SoundPlayer.swift in Sources */,
 				C56E747E283983EB00C38D5D /* ScheduleView.swift in Sources */,
 				C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */,
-				C516FCBE2833FAB20068EA05 /* PracticeTimer.xcdatamodeld in Sources */,
-				C516FCC22834E4F50068EA05 /* DataStore.swift in Sources */,
 				C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */,
 				C56179EF282BEF0100844D80 /* ActivityCardView.swift in Sources */,
 				C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */,
 				C56179F1282D3ACB00844D80 /* ActivityController.swift in Sources */,
 				C51D3D22282A53460030ED16 /* Tools.swift in Sources */,
+				C5CA1FE7284D3C0300179692 /* Data.swift in Sources */,
 				C516FCE5283582470068EA05 /* AddInterval.swift in Sources */,
 				C516FCE328357B170068EA05 /* IntervalRow.swift in Sources */,
 			);
@@ -512,19 +495,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C516FCBC2833FAB20068EA05 /* PracticeTimer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C516FCBD2833FAB20068EA05 /* PracticeTimer.xcdatamodel */,
-			);
-			currentVersion = C516FCBD2833FAB20068EA05 /* PracticeTimer.xcdatamodel */;
-			path = PracticeTimer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C5EE29F6281DB50800F1FD2F /* Project object */;
 }
