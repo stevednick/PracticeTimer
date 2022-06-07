@@ -20,7 +20,7 @@ class RealmManager: ObservableObject {
     
     func openRealm() {
         do {
-            let config = Realm.Configuration(schemaVersion: 1) // Might need migration block if updating schema...
+            let config = Realm.Configuration(schemaVersion: 3) // Might need migration block if updating schema...
             
             Realm.Configuration.defaultConfiguration = config
             localRealm = try Realm()
@@ -92,7 +92,59 @@ class Interval: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var title = ""
     @Persisted var active = true
+    @Persisted var dynamic = 0
+    @Persisted var tempo = 0
+    @Persisted var articulation = 0
     
+    var dynamicToDisplay: String {
+        get {
+            switch dynamic {
+            case 0:
+                return "mf"
+            case 1:
+                return "pp"
+            case 2:
+                return "ff"
+            default:
+                return "error!"
+            }
+        }
+    }
+    var tempoToDisplay: String {
+        get {
+            switch tempo {
+            case 0:
+                return "Moderato"
+            case 1:
+                return "Adagie"
+            case 2:
+                return "Presto"
+            default:
+                return "error!"
+            }
+        }
+    }
+    var articulationToDisplay: String {
+        get {
+            switch articulation {
+            case 0:
+                return "Normal"
+            case 1:
+                return "Legato"
+            case 2:
+                return "Staccato"
+            default:
+                return "error!"
+            }
+        }
+    }
+    // best solution for setting and retrieving characteristics?
+    
+}
+
+class Schedule: Object, ObjectKeyIdentifiable {
+    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted var intervalId: ObjectId
 }
 
 //class PracticeList: Object {

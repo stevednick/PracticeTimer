@@ -11,9 +11,9 @@ import SwiftUI
         
         var save: () -> Void
         //@State var interval: Interval
-        let volumes: [String] = ["Quiet", "No Dynamic", "Loud"]
-        let tempos: [String] = ["Slow", "No Tempo", "Fast"]
-        let articulations: [String] = ["Legato", "No Articulation", "Staccato"]
+//        let volumes: [String] = ["Quiet", "No Dynamic", "Loud"]
+//        let tempos: [String] = ["Slow", "No Tempo", "Fast"]
+//        let articulations: [String] = ["Legato", "No Articulation", "Staccato"]
 
         var body: some View {
             VStack() {

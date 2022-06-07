@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-struct TimerView: View {
+struct ContentView: View {
     @StateObject var realmManager: RealmManager = RealmManager()
     @StateObject var controller: Controller = Controller()
     @StateObject var activityContolller: ActivityController = ActivityController()
@@ -28,6 +28,7 @@ struct TimerView: View {
             realmManager.addInterval(title: "Test Interval")
             realmManager.getIntervals()
             print(realmManager.intervals)
+            print(realmManager.intervals[0].dynamicToDisplay)
         }
     }
 }
@@ -93,9 +94,9 @@ struct MainView: View {
     }
 }
 
-struct TimerView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        TimerView()
+        ContentView()
             //.previewDevice("iPad Pro (12.9-inch) (5th generation)")
         //SettingsView(controller: Controller())
     }

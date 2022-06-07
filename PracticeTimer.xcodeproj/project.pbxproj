@@ -22,10 +22,9 @@
 		C56179EF282BEF0100844D80 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56179EE282BEF0100844D80 /* ActivityCardView.swift */; };
 		C56179F1282D3ACB00844D80 /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56179F0282D3ACB00844D80 /* ActivityController.swift */; };
 		C56E747E283983EB00C38D5D /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E747D283983EB00C38D5D /* ScheduleView.swift */; };
-		C58ED0AE2841918C00302C02 /* Schedule+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58ED0AC2841918C00302C02 /* Schedule+CoreDataClass.swift */; };
 		C5CA1FE7284D3C0300179692 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CA1FE6284D3C0300179692 /* Data.swift */; };
 		C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */; };
-		C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A03281DB50800F1FD2F /* TimerView.swift */; };
+		C5EE2A04281DB50800F1FD2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A03281DB50800F1FD2F /* ContentView.swift */; };
 		C5EE2A06281DB50C00F1FD2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */; };
 		C5EE2A09281DB50C00F1FD2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C5EE2A08281DB50C00F1FD2F /* Preview Assets.xcassets */; };
 		C5EE2A10282115E300F1FD2F /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EE2A0F282115E300F1FD2F /* Controller.swift */; };
@@ -47,12 +46,11 @@
 		C56179EE282BEF0100844D80 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		C56179F0282D3ACB00844D80 /* ActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
 		C56E747D283983EB00C38D5D /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
-		C58ED0AC2841918C00302C02 /* Schedule+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C5B37809282AC071009365E2 /* PracticeTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PracticeTimer.entitlements; sourceTree = "<group>"; };
 		C5CA1FE6284D3C0300179692 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		C5EE29FE281DB50800F1FD2F /* Muso Practice Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Muso Practice Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTimerApp.swift; sourceTree = "<group>"; };
-		C5EE2A03281DB50800F1FD2F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		C5EE2A03281DB50800F1FD2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C5EE2A05281DB50C00F1FD2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C5EE2A08281DB50C00F1FD2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C5EE2A0F282115E300F1FD2F /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
@@ -83,7 +81,7 @@
 		C51D3D1E2827E5250030ED16 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C5EE2A03281DB50800F1FD2F /* TimerView.swift */,
+				C5EE2A03281DB50800F1FD2F /* ContentView.swift */,
 				C51D3D1F2827E53D0030ED16 /* PauseView.swift */,
 				C56179EA282BA6DC00844D80 /* SettingsView.swift */,
 				C56179EC282BA75600844D80 /* Components.swift */,
@@ -99,7 +97,6 @@
 		C5EE29F5281DB50800F1FD2F = {
 			isa = PBXGroup;
 			children = (
-				C58ED0AC2841918C00302C02 /* Schedule+CoreDataClass.swift */,
 				C5EE2A00281DB50800F1FD2F /* PracticeTimer */,
 				C5EE29FF281DB50800F1FD2F /* Products */,
 				FA0C2C0CB0FEB2706AAC6ABD /* Pods */,
@@ -272,11 +269,10 @@
 				C52C97CD282DB46600DF96EB /* ActivityView.swift in Sources */,
 				C56179EB282BA6DC00844D80 /* SettingsView.swift in Sources */,
 				C56179ED282BA75600844D80 /* Components.swift in Sources */,
-				C58ED0AE2841918C00302C02 /* Schedule+CoreDataClass.swift in Sources */,
 				C5EE2A10282115E300F1FD2F /* Controller.swift in Sources */,
 				C54F0B4C282A83D80091E04F /* SoundPlayer.swift in Sources */,
 				C56E747E283983EB00C38D5D /* ScheduleView.swift in Sources */,
-				C5EE2A04281DB50800F1FD2F /* TimerView.swift in Sources */,
+				C5EE2A04281DB50800F1FD2F /* ContentView.swift in Sources */,
 				C5EE2A02281DB50800F1FD2F /* PracticeTimerApp.swift in Sources */,
 				C56179EF282BEF0100844D80 /* ActivityCardView.swift in Sources */,
 				C51D3D202827E53D0030ED16 /* PauseView.swift in Sources */,

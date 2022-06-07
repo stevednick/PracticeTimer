@@ -8,15 +8,13 @@
 import CoreData
 import SwiftUI
 
-struct Activity: Identifiable { // Does this need a refactor too, probably once we move to core data...
+struct Activity: Identifiable { // Transfer all this stuff into Interval
     var id = UUID()
     var number: Int
     var name: String = ""
     var volume: Int = 1
     var articulation: Int = 1
     var tempo: Int = 1
-    
-    // Init with name "Interval i"
 }
 
 class ActivityController: ObservableObject {

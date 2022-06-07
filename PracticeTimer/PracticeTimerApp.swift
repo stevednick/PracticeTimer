@@ -12,7 +12,7 @@ struct PracticeTimerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TimerView()
+            ContentView()
         }
     }
 }

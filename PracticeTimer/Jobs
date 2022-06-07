@@ -7,6 +7,9 @@ Turn intervals on/off
 Back to basics, need substantial tidying of code after all this dicking about...
 Maybe even a new project? Copy across realm manager?
 
+Move all saving across to realm?
+
+One big controller which includes all realm stuff?
 
 
 
