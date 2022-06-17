@@ -21,14 +21,12 @@ struct ContentView: View {
         NavigationView {
             ZStack{
                 MainView(controller: controller, activityController: activityContolller)
+                    .environmentObject(realmManager)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear{
-            realmManager.addInterval(title: "Test Interval")
-            realmManager.getIntervals()
-            print(realmManager.intervals)
-            print(realmManager.intervals[0].dynamicToDisplay)
+            //
         }
     }
 }
@@ -37,6 +35,7 @@ struct MainView: View {
     
     @State private var isPaused = false
     
+    @EnvironmentObject var realmManager: RealmManager
     @ObservedObject var controller: Controller
     @ObservedObject var activityController: ActivityController
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -59,10 +58,11 @@ struct MainView: View {
                 .padding(.leading, 40.0)
                 .frame(height: 20.0)
                 Spacer()
-                NavigationLink(destination: ActivityView(activityController: activityController)) {
+                NavigationLink(destination: //ActivityView(activityController: activityController)) {
                                
-                    //ScheduleView()) {
-                    Text("Intervals")
+                    ScheduleView()
+                    .environmentObject(realmManager)) {
+                    Text("Schedule")
                         .font(Font.system(size: 25, weight: .semibold, design: .default))
                 }
                 .padding(.trailing, 40.0)

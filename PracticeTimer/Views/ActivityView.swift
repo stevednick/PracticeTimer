@@ -30,7 +30,6 @@ struct ActivityView: View{
 //              Image(systemName: "plus")
 //            }
 //        )
-    
     }
     
     func testSchedule() {

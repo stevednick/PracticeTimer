@@ -47,7 +47,7 @@ class Controller: ObservableObject {
     var soundPlayer = SoundPlayer()
     
     @Published var currentState: Mode = .waitingToStart
-    @StateObject var activityController: ActivityController = ActivityController()
+    //@StateObject var activityController: ActivityController = ActivityController()
     
     var startButtonText: String {
         get {
