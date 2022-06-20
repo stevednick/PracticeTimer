@@ -9,9 +9,10 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @StateObject var realmManager: RealmManager = RealmManager()
+    @StateObject var realmManager = RealmManager()
     @StateObject var controller: Controller = Controller()
     @StateObject var activityContolller: ActivityController = ActivityController()
+    
     
     init() {
         UINavigationBar.setAnimationsEnabled(false)
@@ -21,13 +22,10 @@ struct ContentView: View {
         NavigationView {
             ZStack{
                 MainView(controller: controller, activityController: activityContolller)
-                    .environmentObject(realmManager)
+                    .environmentObject(self.realmManager)
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear{
-            //
-        }
     }
 }
 
@@ -59,9 +57,9 @@ struct MainView: View {
                 .frame(height: 20.0)
                 Spacer()
                 NavigationLink(destination: //ActivityView(activityController: activityController)) {
-                               
                     ScheduleView()
-                    .environmentObject(realmManager)) {
+                        .environmentObject(self.realmManager))
+                    {
                     Text("Schedule")
                         .font(Font.system(size: 25, weight: .semibold, design: .default))
                 }

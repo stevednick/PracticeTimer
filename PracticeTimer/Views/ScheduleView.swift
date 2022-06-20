@@ -11,15 +11,15 @@ struct ScheduleView: View {
     
     @EnvironmentObject var realmManager: RealmManager
     @State var isPresented: Bool = false
-    @State var clickedSlot: [Int] = [0, 0]
-    @State var refreshToggle = false
+    var clickedSlot: [Int] = [0, 0]
     
     var body: some View {
         VStack{
+            Text("\(realmManager.schedule.count)")
             HStack{
                 Text("Schedule View")
                 Button {
-                    realmManager.addSession()
+                    self.realmManager.addSession()
                 } label: {
                     Text("Add Session")
                 }
@@ -32,20 +32,12 @@ struct ScheduleView: View {
             .toolbar {
                 EditButton()
             }
-        }.sheet(isPresented: $isPresented) {
+        }
+        .sheet(isPresented: $isPresented) {
                   AddInterval { name, volume, tempo, articulation in
-                      realmManager.updateSlot(session: clickedSlot[0], position: clickedSlot[1], interval: Interval(value: ["title": name]))
+                      self.realmManager.updateSlot(session: clickedSlot[0], position: clickedSlot[1], interval: Interval(value: ["title": name]))
                     self.isPresented = false
             }
-        }
-    }
-    
-    func deleteSession(at offsets: IndexSet){
-        realmManager.deleteSession(sessionNumber: Int(offsets.first ?? 0))
-    }
-    func reloadSlots() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            refreshToggle.toggle()
         }
     }
     

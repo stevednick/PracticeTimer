@@ -10,17 +10,13 @@ import SwiftUI
 struct SlotRow: View {
     
     @EnvironmentObject var realmManager: RealmManager
-    @State var slot: Slot
-    //@Binding var isPresented: Bool
-    //@Binding var slotPosition: [Int]
-    @State var ownPosition: [Int]
-    // This is the culprit I think...
-    // Add position/session to allow editing? 
+    var slot: Slot
+    var ownPosition: [Int]
     
     var body: some View {
         VStack{
             HStack{
-                Text("Own Position: [\(ownPosition[0]),\(ownPosition[1])]")
+                Text(slot.text)
             }
         }
         .padding()

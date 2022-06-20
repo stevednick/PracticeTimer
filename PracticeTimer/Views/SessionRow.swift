@@ -9,28 +9,28 @@ import SwiftUI
 
 struct SessionRow: View {
     @EnvironmentObject var realmManager: RealmManager
-    @State var sessionNumber: Int
-    @State var session: [Slot]
+    var sessionNumber: Int
+    var session: [Slot]
+    
     var body: some View {
         VStack{
             HStack{
                 Text("Session \(sessionNumber + 1)")
                 Button {
-                    realmManager.deleteSession(sessionNumber: sessionNumber)
+                    self.realmManager.deleteSession(sessionNumber: sessionNumber)
                 } label: {
                     Label("", systemImage: "trash")
                 }
                 .buttonStyle(PlainButtonStyle())
                 Button {
-                    realmManager.addSlot(sessionNumber: sessionNumber)
+                    self.realmManager.addSlot(sessionNumber: sessionNumber)
                 } label: {
                     Label("", systemImage: "plus")
                 }
                 .buttonStyle(PlainButtonStyle())
             }
-            ForEach(0..<session.count, id: \.self) { slotNumber in
-                SlotRow(slot: session[slotNumber], ownPosition: [sessionNumber, slotNumber])
-                    .environmentObject(realmManager)
+            ForEach(0..<self.session.count, id: \.self) { slotNumber in
+                SlotRow(slot: self.session[slotNumber], ownPosition: [self.sessionNumber, slotNumber])
             }
             .onDelete { indexSet in
                 //

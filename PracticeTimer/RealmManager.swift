@@ -12,8 +12,9 @@ import AVFoundation
 class RealmManager: ObservableObject {
     
     private(set) var localRealm: Realm?
-    @Published private(set) var intervals: [Interval] = []
-    @Published private(set) var schedule: [[Slot]] = [[]]
+    @Published var intervals: [Interval] = []
+    @Published var schedule: [[Slot]] = [[]]
+    @Published var slots: [Slot] = []
     
     init() {
         openRealm()
