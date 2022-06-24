@@ -113,7 +113,6 @@ class RealmManager: ObservableObject {
                 }
             }
         }
-        print(schedule)
     }
     
     func addSession() {
@@ -175,20 +174,21 @@ class RealmManager: ObservableObject {
     
     func deleteSlot(sessionNumber: Int, position: Int) {
         if let localRealm = localRealm {
+            let schedule = localRealm.objects(Schedule.self)[0]
+            let session = schedule.sessions[sessionNumber]
             do {
-                let session = localRealm.objects(Session.self)[sessionNumber]
-                let slotToDelete = session.slots[position]
                 try localRealm.write{
-                    localRealm.delete(slotToDelete)
+                    let slotList = session.slots
+                    slotList.remove(at: position)
                     print("Deleted slot in session \(sessionNumber) and position \(position).")
                 }
-                if session.slots.count == 0{
-                    deleteSession(sessionNumber: sessionNumber)
-                }
-                getSchedule()
             } catch {
                 print("Error deleting slot in session \(sessionNumber) and position \(position). \(error)")
             }
+            if session.slots.count == 0{
+                deleteSession(sessionNumber: sessionNumber)
+            }
+            getSchedule()
         }
     }
     
@@ -279,7 +279,12 @@ class Slot: Object, ObjectKeyIdentifiable {
             if let interval = interval {
                 return interval.title
             }
-            return "Empty"
+            return ""
+        }
+    }
+    var textToDisplay: String {
+        get {
+            return interval?.title ?? ""
         }
     }
 }

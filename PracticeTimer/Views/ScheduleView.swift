@@ -10,34 +10,26 @@ import SwiftUI
 struct ScheduleView: View {
     
     @EnvironmentObject var realmManager: RealmManager
-    @State var isPresented: Bool = false
     var clickedSlot: [Int] = [0, 0]
+    var controller: Controller
     
     var body: some View {
         VStack{
-            Text("\(realmManager.schedule.count)")
-            HStack{
-                Text("Schedule View")
-                Button {
-                    self.realmManager.addSession()
-                } label: {
-                    Text("Add Session")
-                }
-            }
             List{
                 ForEach(0..<realmManager.schedule.count, id: \.self) { sessionNumber in
-                    SessionRow(sessionNumber: sessionNumber, session: realmManager.schedule[sessionNumber])
+                    Section{
+                        SessionRow(sessionNumber: sessionNumber, session: realmManager.schedule[sessionNumber])
+                    }
                 }
             }
-            .toolbar {
-                EditButton()
-            }
         }
-        .sheet(isPresented: $isPresented) {
-                  AddInterval { name, volume, tempo, articulation in
-                      self.realmManager.updateSlot(session: clickedSlot[0], position: clickedSlot[1], interval: Interval(value: ["title": name]))
-                    self.isPresented = false
+        .navigationBarTitle(Text("Schedule"))
+        .navigationBarItems(trailing: Button(action: { realmManager.addSession() }) {
+            Text("Add Session")
             }
+        )
+        .onAppear{
+            _ = controller.incrementPosition(reset: true)
         }
     }
     
@@ -48,7 +40,7 @@ struct ScheduleView: View {
 
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView()
+        ScheduleView(controller: Controller())
             .environmentObject(RealmManager())
     }
 }

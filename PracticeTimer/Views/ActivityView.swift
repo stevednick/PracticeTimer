@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ActivityView: View{
     
-    @ObservedObject var activityController: ActivityController
     @EnvironmentObject var realmManager: RealmManager
 
     @State var isPresented = false
@@ -24,12 +23,7 @@ struct ActivityView: View{
 //              dataView.addInterval(name: name, volume: volume, tempo: tempo, articulation: articulation)
 //            self.isPresented = false
            
-//        .navigationBarTitle(Text("Intervals"))
-//          .navigationBarItems(trailing:
-//            Button(action: { self.isPresented.toggle() }) {
-//              Image(systemName: "plus")
-//            }
-//        )
+
     }
     
     func testSchedule() {
@@ -45,7 +39,7 @@ struct ActivityView: View{
 
 struct ActivityView_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityView(activityController: ActivityController())
+        ActivityView()
             .environmentObject(RealmManager())
     }
 }

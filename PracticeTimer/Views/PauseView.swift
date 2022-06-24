@@ -22,15 +22,12 @@ struct PauseView: View {
                 Spacer()
                 Text(controller.pausedStateText)
                     .font(Font.system(size: 50, weight: .semibold, design: .default))
-                    .foregroundColor(.white)
                 Spacer()
                 Text(controller.timeRemaining.timeDisplay())
                     .font(Font.system(size: 45, weight: .semibold, design: .default))
-                    .foregroundColor(.white)
                 Spacer()
                 Text("Paused")
                     .font(Font.system(size: 70, weight: .bold, design: .default))
-                    .foregroundColor(.white)
                 Spacer()
             }
             Group {
@@ -40,7 +37,6 @@ struct PauseView: View {
                 Spacer()
             }
         }
-        .background(Color(UIColor.darkGray))
         .navigationBarTitle("")
         .navigationBarHidden(true)
     }

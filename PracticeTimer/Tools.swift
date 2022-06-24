@@ -17,25 +17,11 @@ extension Color {
     static let appBlue = Color("appBlue")
     static let appLightOrange = Color("appLightOrange")
     static let appYellow = Color("appYellow")
+    static let textColour = Color("textColour")
+    static let backgroundColour = Color("backgroundColour")
 }
 
 extension View {
-    
-    /// Hide or show the view based on a boolean value.
-    ///
-    /// Example for visibility:
-    ///
-    ///     Text("Label")
-    ///         .isHidden(true)
-    ///
-    /// Example for complete removal:
-    ///
-    ///     Text("Label")
-    ///         .isHidden(true, remove: true)
-    ///
-    /// - Parameters:
-    ///   - hidden: Set to `false` to show the view. Set to `true` to hide the view.
-    ///   - remove: Boolean value indicating whether or not to remove the view.
     @ViewBuilder func isHidden(_ hidden: Bool, remove: Bool = false) -> some View {
         if hidden {
             if !remove {
@@ -44,6 +30,17 @@ extension View {
         } else {
             self
         }
+    }
+}
+
+extension Int {
+    func timeDisplay() -> String {
+        let minutes = Int(Double(self)/60.0)
+        var seconds = String(self % 60)
+        if seconds.count == 1 {
+            seconds = "0" + seconds
+        }
+        return String(minutes) + ":" + seconds
     }
 }
 

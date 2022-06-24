@@ -28,3 +28,14 @@ struct ButtonView: View {
     }
 }
 
+struct CountdownText: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(Font.system(size: 120, weight: .bold, design: .default))
+            .fontWeight(.bold)
+            .padding()
+            .foregroundColor(.textColour)
+    }
+}
+

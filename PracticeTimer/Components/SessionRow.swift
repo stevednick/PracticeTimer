@@ -14,31 +14,36 @@ struct SessionRow: View {
     
     var body: some View {
         VStack{
-            HStack{
+            HStack(alignment: .top){
                 Text("Session \(sessionNumber + 1)")
+                    .font(.title)
+                Spacer()
+                Text("Add Interval")
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        self.realmManager.addSlot(sessionNumber: sessionNumber)
+                    }
+                .padding(.trailing)
                 Button {
                     self.realmManager.deleteSession(sessionNumber: sessionNumber)
                 } label: {
-                    Label("", systemImage: "trash")
-                }
-                .buttonStyle(PlainButtonStyle())
-                Button {
-                    self.realmManager.addSlot(sessionNumber: sessionNumber)
-                } label: {
-                    Label("", systemImage: "plus")
+                    Image(systemName: "trash")
+                        .foregroundColor(.textColour)
                 }
                 .buttonStyle(PlainButtonStyle())
             }
+            .padding(.top, 10.0)
+            .padding(.bottom, 30.0)
+
             ForEach(0..<self.session.count, id: \.self) { slotNumber in
-                SlotRow(slot: self.session[slotNumber], ownPosition: [self.sessionNumber, slotNumber])
-            }
-            .onDelete { indexSet in
-                //
+                Divider()
+                SlotRow(slot: self.session[slotNumber], ownPosition: [self.sessionNumber, slotNumber], deleteSlot: {deleteSlot(session: sessionNumber, position: slotNumber)})
             }
         }
-        .onAppear{
-            print("Session Number: \(sessionNumber) loaded.")
-        }
+    }
+    
+    func deleteSlot(session: Int, position: Int) {
+        realmManager.deleteSlot(sessionNumber: session, position: position)
     }
 }
 

@@ -21,7 +21,7 @@
 		C56179ED282BA75600844D80 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56179EC282BA75600844D80 /* Components.swift */; };
 		C56179EF282BEF0100844D80 /* ActivityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56179EE282BEF0100844D80 /* ActivityCardView.swift */; };
 		C56E747E283983EB00C38D5D /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56E747D283983EB00C38D5D /* ScheduleView.swift */; };
-		C59397AB28522512009C4D6D /* ActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59397AA28522512009C4D6D /* ActivityController.swift */; };
+		C58C632228626443005DB0C3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58C632128626443005DB0C3 /* MainView.swift */; };
 		C59397AD28522547009C4D6D /* SlotRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59397AC28522547009C4D6D /* SlotRow.swift */; };
 		C5CA1FE7284D3C0300179692 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5CA1FE6284D3C0300179692 /* RealmManager.swift */; };
 		C5DFEBB5285C926800AB9239 /* SessionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DFEBB4285C926800AB9239 /* SessionRow.swift */; };
@@ -47,7 +47,7 @@
 		C56179EC282BA75600844D80 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		C56179EE282BEF0100844D80 /* ActivityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCardView.swift; sourceTree = "<group>"; };
 		C56E747D283983EB00C38D5D /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
-		C59397AA28522512009C4D6D /* ActivityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityController.swift; sourceTree = "<group>"; };
+		C58C632128626443005DB0C3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C59397AC28522547009C4D6D /* SlotRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotRow.swift; sourceTree = "<group>"; };
 		C5B37809282AC071009365E2 /* PracticeTimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PracticeTimer.entitlements; sourceTree = "<group>"; };
 		C5CA1FE6284D3C0300179692 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
@@ -88,16 +88,24 @@
 				C5EE2A03281DB50800F1FD2F /* ContentView.swift */,
 				C51D3D1F2827E53D0030ED16 /* PauseView.swift */,
 				C56179EA282BA6DC00844D80 /* SettingsView.swift */,
-				C56179EC282BA75600844D80 /* Components.swift */,
 				C56179EE282BEF0100844D80 /* ActivityCardView.swift */,
 				C52C97CC282DB46600DF96EB /* ActivityView.swift */,
 				C516FCE228357B170068EA05 /* IntervalRow.swift */,
-				C516FCE4283582470068EA05 /* AddInterval.swift */,
 				C56E747D283983EB00C38D5D /* ScheduleView.swift */,
-				C59397AC28522547009C4D6D /* SlotRow.swift */,
-				C5DFEBB4285C926800AB9239 /* SessionRow.swift */,
+				C58C632128626443005DB0C3 /* MainView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C58C632328626504005DB0C3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C56179EC282BA75600844D80 /* Components.swift */,
+				C516FCE4283582470068EA05 /* AddInterval.swift */,
+				C5DFEBB4285C926800AB9239 /* SessionRow.swift */,
+				C59397AC28522547009C4D6D /* SlotRow.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		C5EE29F5281DB50800F1FD2F = {
@@ -121,7 +129,7 @@
 		C5EE2A00281DB50800F1FD2F /* PracticeTimer */ = {
 			isa = PBXGroup;
 			children = (
-				C59397AA28522512009C4D6D /* ActivityController.swift */,
+				C58C632328626504005DB0C3 /* Components */,
 				C5B37809282AC071009365E2 /* PracticeTimer.entitlements */,
 				C51D3D1E2827E5250030ED16 /* Views */,
 				C5EE2A01281DB50800F1FD2F /* PracticeTimerApp.swift */,
@@ -273,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C52C97CD282DB46600DF96EB /* ActivityView.swift in Sources */,
+				C58C632228626443005DB0C3 /* MainView.swift in Sources */,
 				C56179EB282BA6DC00844D80 /* SettingsView.swift in Sources */,
 				C56179ED282BA75600844D80 /* Components.swift in Sources */,
 				C5DFEBB5285C926800AB9239 /* SessionRow.swift in Sources */,
@@ -287,7 +296,6 @@
 				C51D3D22282A53460030ED16 /* Tools.swift in Sources */,
 				C5CA1FE7284D3C0300179692 /* RealmManager.swift in Sources */,
 				C516FCE5283582470068EA05 /* AddInterval.swift in Sources */,
-				C59397AB28522512009C4D6D /* ActivityController.swift in Sources */,
 				C516FCE328357B170068EA05 /* IntervalRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,7 +425,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PracticeTimer/PracticeTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"PracticeTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = V4DPA4RA3P;
 				ENABLE_PREVIEWS = YES;
@@ -433,7 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.4;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weststreetgamestudios.PracticeTimer;
 				PRODUCT_NAME = "Muso Practice Timer";
 				SUPPORTS_MACCATALYST = NO;
@@ -451,7 +459,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PracticeTimer/PracticeTimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"PracticeTimer/Preview Content\"";
 				DEVELOPMENT_TEAM = V4DPA4RA3P;
 				ENABLE_PREVIEWS = YES;
@@ -467,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.4;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.weststreetgamestudios.PracticeTimer;
 				PRODUCT_NAME = "Muso Practice Timer";
 				SUPPORTS_MACCATALYST = NO;

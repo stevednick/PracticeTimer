@@ -7,47 +7,22 @@
 
 import SwiftUI
 
-enum Mode {
-    case work
-    case rest
-    case pausedWork
-    case pausedRest
-    case waitingToStart
-    case finished
-    case countdown
-    case pausedCountdown
-}
-
-public struct PracticeElement {
-    enum Tempos {
-        case slow
-        case neutral
-        case fast
-    }
-    enum Articulations {
-        case legato
-        case neutral
-        case articulated
-    }
-    enum Volumes {
-        case quiet
-        case neutral
-        case loud
-    }
-    let name: String
-    let volume: Volumes
-    let articulation: Articulations
-    let tempo: Tempos
-}
-
 class Controller: ObservableObject {
     
-    let data = Data()
     let defaults = UserDefaults.standard
     var soundPlayer = SoundPlayer()
+    @Published var darkMode: Bool
     
+    var schedule: [[Slot]] = []
+    @Published var scheduleMode: Bool
+    @Published var currentPosition: [Int]
     @Published var currentState: Mode = .waitingToStart
-    //@StateObject var activityController: ActivityController = ActivityController()
+    
+    var currentPositionText: String {
+        get {
+            return schedule[currentPosition[0]][currentPosition[1]].textToDisplay
+        }
+    }
     
     var startButtonText: String {
         get {
@@ -60,8 +35,12 @@ class Controller: ObservableObject {
     var stateText: String {
         get {
             if currentState == .waitingToStart { return "Ready" }
-            if currentState == .work { return "Work x\(currentRep)"}
-            if currentState == .rest { return "Rest" }
+            if currentState == .work {
+                return scheduleMode ? currentPositionText : "Work x\(currentRep)"
+            }
+            if currentState == .rest {
+                return scheduleMode ? "Next: \(currentPositionText)" : "Rest"
+            }
             if currentState == .finished { return "Finished" }
             if currentState == .countdown { return "Get Ready" }
             return "Paused"
@@ -71,7 +50,7 @@ class Controller: ObservableObject {
         get {
             switch currentState {
             case .pausedWork:
-                return "Work x\(currentRep)"
+                return scheduleMode ? currentPositionText : "Work x\(currentRep)"
             case .pausedRest:
                 return "Rest"
             case .pausedCountdown:
@@ -81,6 +60,7 @@ class Controller: ObservableObject {
             }
         }
     }
+    
     @Published var workDuration: Int
     @Published var restDuration: Int
     var countdownDuration: Int = 5
@@ -93,11 +73,13 @@ class Controller: ObservableObject {
     init() {
         workDuration = defaults.integer(forKey: "work-duration") > 0 ? defaults.integer(forKey: "work-duration") : 29
         restDuration = defaults.integer(forKey: "rest-duration") > 0 ? defaults.integer(forKey: "rest-duration") : 10
+        scheduleMode = defaults.bool(forKey: "scheduleMode")
+        currentPosition = defaults.array(forKey: "currentPosition") as? [Int] ?? [0, 0]
+        darkMode = defaults.bool(forKey: "darkMode")
         reps = defaults.integer(forKey: "reps") > 0 ? defaults.integer(forKey: "reps") : 5
-        workDuration = workDuration > 45 ? 29 : workDuration
-        restDuration = restDuration > 45 ? 10 : restDuration
+        //workDuration = workDuration > 45 ? 29 : workDuration
+        //restDuration = restDuration > 45 ? 10 : restDuration
         timeRemaining = Tools.timerValues[workDuration]
-        
     }
     
     func saveSettings() {
@@ -120,10 +102,18 @@ class Controller: ObservableObject {
             }
             if currentState == .work {
                 currentRep += 1
-                if currentRep > reps {
-                    currentState = .finished
-                    timeRemaining = 0
-                    return
+                if scheduleMode {
+                    if incrementPosition() {
+                        currentState = .finished
+                        timeRemaining = 0
+                        return
+                    }
+                } else {
+                    if currentRep > reps {
+                        currentState = .finished
+                        timeRemaining = 0
+                        return
+                    }
                 }
                 currentState = .rest
                 timeRemaining = Tools.timerValues[restDuration]
@@ -158,6 +148,7 @@ class Controller: ObservableObject {
             currentState = .rest
         case .waitingToStart:
             currentState = .countdown
+            _ = incrementPosition(resetInterval: true)
             timeRemaining = countdownDuration
         case .finished:
             currentState = .waitingToStart
@@ -179,15 +170,46 @@ class Controller: ObservableObject {
     func setTimeToDisplay() {
         timeRemaining = Tools.timerValues[workDuration]
     }
-}
-
-extension Int {
-    func timeDisplay() -> String {
-        let minutes = Int(Double(self)/60.0)
-        var seconds = String(self % 60)
-        if seconds.count == 1 {
-            seconds = "0" + seconds
+    
+    func toggleScheduleMode() {
+        scheduleMode.toggle()
+        defaults.set(scheduleMode, forKey: "scheduleMode")
+    }
+    
+    func incrementPosition(reset: Bool = false, resetInterval: Bool = false, nextSession: Bool = false) -> Bool{
+        if reset {
+            currentPosition = [0, 0]
+        } else if resetInterval {
+            currentPosition[1] = 0
+        } else if nextSession {
+            currentPosition[0] = currentPosition[0] == schedule.count - 1 ? 0 : currentPosition[0] + 1
+        } else {
+            if currentPosition[1] < schedule[currentPosition[0]].count - 1{
+                currentPosition[1] += 1
+            } else {
+                currentPosition[1] = 0
+                if currentPosition[0] < schedule.count - 1 {
+                    currentPosition[0] += 1
+                } else {
+                    currentPosition[0] = 0
+                }
+                defaults.set(currentPosition, forKey: "currentPosition")
+                return true
+            }
         }
-        return String(minutes) + ":" + seconds
+        defaults.set(currentPosition, forKey: "currentPosition")
+        return false
     }
 }
+
+enum Mode {
+    case work
+    case rest
+    case pausedWork
+    case pausedRest
+    case waitingToStart
+    case finished
+    case countdown
+    case pausedCountdown
+}
+
