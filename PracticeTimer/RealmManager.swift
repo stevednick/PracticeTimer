@@ -41,7 +41,7 @@ class RealmManager: ObservableObject {
                 try localRealm.write{
                     let newItem = Interval(value: ["title": title])
                     localRealm.add(newItem)
-                    getIntervals()
+                    rebuildData()
                     print("New Interval added to Realm \(newItem)")
                     
                 }
@@ -69,7 +69,7 @@ class RealmManager: ObservableObject {
                 
                 try localRealm.write{
                     intervalToUpdate[0].active = active
-                    getIntervals()
+                    rebuildData()
                     print("Updated task with id: \(id). Active status: \(active)")
                 }
             } catch  {
@@ -85,7 +85,7 @@ class RealmManager: ObservableObject {
                 guard !intervalToDelete.isEmpty else { return }
                 try localRealm.write{
                     localRealm.delete(intervalToDelete)
-                    getIntervals()
+                    rebuildData()
                     print("Deleted interval with id: \(id).")
                 }
             } catch {
@@ -129,7 +129,7 @@ class RealmManager: ObservableObject {
                     }
                     let schedule = localRealm.objects(Schedule.self)[0]
                     schedule.sessions.append(newSession)
-                    getSchedule()
+                    rebuildData()
                     print("New Session added to Realm \(newSession)")
                 }
             } catch  {
@@ -145,7 +145,7 @@ class RealmManager: ObservableObject {
                 let sessionToDelete = schedule.sessions[sessionNumber]
                 try localRealm.write{
                     localRealm.delete(sessionToDelete)
-                    getSchedule()
+                    rebuildData()
                     print("Session \(sessionNumber) deleted")
                 }
             } catch {
@@ -162,7 +162,7 @@ class RealmManager: ObservableObject {
                     let schedule = localRealm.objects(Schedule.self)[0]
                     let sessionToAppend = schedule.sessions[sessionNumber]
                     sessionToAppend.slots.append(newSlot)
-                    getSchedule()
+                    rebuildData()
                     print("New Slot added to Session: \(sessionNumber) \(newSlot)")
                     
                 }
@@ -188,7 +188,7 @@ class RealmManager: ObservableObject {
             if session.slots.count == 0{
                 deleteSession(sessionNumber: sessionNumber)
             }
-            getSchedule()
+            rebuildData()
         }
     }
     
@@ -200,13 +200,18 @@ class RealmManager: ObservableObject {
                 let slotToUpdate = sessionToUpdate.slots[position]
                 try localRealm.write{
                     slotToUpdate.interval = interval
-                    getSchedule()
+                    rebuildData()
                     print("Updated slot in session \(session) and position \(position).")
                 }
             } catch  {
                 print("Error updating slot in session \(session) and position \(position): \(error)")
             }
         }
+    }
+    
+    func rebuildData(){
+        getIntervals()
+        getSchedule()
     }
 }
 

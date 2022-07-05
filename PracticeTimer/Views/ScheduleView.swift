@@ -24,7 +24,13 @@ struct ScheduleView: View {
             }
         }
         .navigationBarTitle(Text("Schedule"))
-        .navigationBarItems(trailing: Button(action: { realmManager.addSession() }) {
+        .navigationBarItems(
+            leading: NavigationLink(destination: IntervalView()
+                .environmentObject(realmManager),
+                                    label: {
+                                        Text("Intervals")
+                                    }),
+            trailing: Button(action: { realmManager.addSession() }) {
             Text("Add Session")
             }
         )

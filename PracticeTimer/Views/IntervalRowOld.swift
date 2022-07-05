@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-    struct IntervalRow: View {
+    struct IntervalRowOld: View {
         
         var save: () -> Void
         //@State var interval: Interval
